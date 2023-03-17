@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: customruns-reader-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: customruns-reader
+subjects:
+- kind: ServiceAccount
+  name: automatiko-approval-task
+  namespace: ci-pipeline
+
